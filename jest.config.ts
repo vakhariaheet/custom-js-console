@@ -7,14 +7,6 @@ const config: Config.InitialOptions = {
 	preset: 'ts-jest',
 	collectCoverage: true,
 	coverageReporters: ['text', 'json-summary', 'lcov'],
-	// coverageThreshold: {
-	// 	global: {
-	// 		branches: 100,
-	// 		functions: 100,
-	// 		statements: 100,
-	// 		lines: 100,
-	// 	},
-	// },
 	testEnvironment: 'jsdom',
 };
 export default config;
