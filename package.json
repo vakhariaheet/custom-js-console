@@ -1,0 +1,74 @@
+{
+	"name": "custom-js-console",
+	"version": "0.0.0-development",
+	"description": "Add Custom Console In your webapp like codepen,codesandbox",
+	"main": "dist/index.js",
+	"files": [
+		"dist/**/*"
+	],
+	"browser": "./dist/index.umd.min.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"commit": "git-cz",
+		"report-coverage": "cat ./coverage/lcov.info | codecov",
+		"test": "jest --config jest.config.ts --coverage ",
+		"watch:test": "yarn test -- --watch",
+		"watch:build": "tsc --build tsconfig.json --watch",
+		"prebuild": "rimraf dist",
+		"format": "yarn prettier --write .",
+		"build:main": "tsc --build tsconfig.json",
+		"build:umd": "webpack --output-filename index.umd.js --mode=development",
+		"build:umdmin": "webpack --output-filename index.umd.min.js --mode=production",
+		"build": "npm-run-all --parallel 'build:*'",
+		"semantic-release": "semantic-release"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-conventional-changelog"
+		},
+		"ghooks": {
+			"pre-commit": "yarn format && git add . && yarn test "
+		}
+	},
+	"engines": {
+		"node": ">=10.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vakhariaheet/custom-js-console.git"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@types/jest": "^27.0.2",
+		"codecov": "^3.8.3",
+		"codecov.io": "^0.1.6",
+		"commitizen": "^4.2.4",
+		"cz-conventional-changelog": "^3.3.0",
+		"ghooks": "^2.0.4",
+		"jest": "^27.2.5",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.4.1",
+		"rimraf": "^3.0.2",
+		"semantic-release": "^18.0.0",
+		"ts-jest": "^27.0.5",
+		"ts-loader": "^9.2.6",
+		"typescript": "^4.4.3",
+		"webpack": "^5.58.1",
+		"webpack-cli": "^4.9.0",
+		"yarn": "^1.22.15"
+	},
+	"keywords": [
+		"custom-js-console",
+		"custom-js-terminal",
+		"js-console",
+		"console",
+		"js-terminal",
+		"console"
+	],
+	"author": "vakharia_heet",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/vakhariaheet/custom-js-console/issues"
+	},
+	"homepage": "https://github.com/vakhariaheet/custom-js-console#readme"
+}
