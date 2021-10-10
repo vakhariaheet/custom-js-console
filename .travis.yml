@@ -3,6 +3,7 @@ language: node_js
 node_js:
   - 'lts/*'
 cache:
+  yarn: true
   directories:
     - node_modules
 branches:
@@ -10,9 +11,9 @@ branches:
     - master
 before_script:
   - npm prune
-  - npm run build
+  - yarn build
 script:
-  - npm run test
+  - yarn test
 after_script:
-  - npm run report-coverage
-  - npm run semantic-release
+  - yarn report-coverage
+  - yarn semantic-release
