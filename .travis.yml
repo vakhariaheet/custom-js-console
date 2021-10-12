@@ -2,17 +2,15 @@ sudo: false
 language: node_js
 node_js:
   - '--lts'
-cache:
-  directories:
-    - node_modules
+cache: false
 branches:
   only:
     - master
 before_script:
   - npm prune
-  - yarn build
+  - npm run build
 script:
-  - yarn test
+  - npm run test
 after_script:
-  - yarn report-coverage
-  - yarn semantic-release
+  - npm run report-coverage
+  - npm run semantic-release
